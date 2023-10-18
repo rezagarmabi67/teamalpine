@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="/dist/output.css" rel="stylesheet" />
+        <link
+            rel="stylesheet"
+            href="//use.fontawesome.com/releases/v5.0.7/css/all.css"
+        />
+        <link rel="stylesheet" href="./css/style.css" />
+        <script
+            defer
+            src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+        ></script>
+        <title>teamsazan</title>
+    </head>
+    <body>
+        <!--start Header -->
+        <header x-data="{ showMenu: false }" @click.outside="showMenu = false" class="bg-bg4 shadow-md relative h-20 md:px-28 max-md:px-3 text-white flex justify-between items-center">
+            
+                <div
+                    @click="showMenu =! showMenu"
+                   
+                    class="md:hidden flex items-center cursor-pointer"
+                ><i class="fa fa-bars"></i>
+                </div>
+
+                <ul
+                    :class="{'block absolute w-[50%] text-xs h-screen top-0 right-0 z-50 py-10 bg-bg4 max-md:flex flex-col items-center gap-5': showMenu, 'hidden md:flex justify-evenly items-center gap-5': !showMenu}"
+                >
+                    <li>ورود <i class="fa fa-sign-in-alt"></i></li>
+                    <li
+                        class="py-1 px-2 animate-pulse border rounded md:ml-5 max-md:mb-5"
+                    >
+                        افزودن <i class="fa fa-plus"></i>
+                    </li>
+                    <li>خانه <i class="fa fa-home"></i></li>
+                    <li>اطلاع رسانی تست ها <i class="fa fa-bullhorn"></i></li>
+                    <li>درباره ما <i class="fa fa-exclamation-circle"></i></li>
+                    <li>تماس با ما <i class="fa fa-phone"></i></li>
+                </ul>
+
+                <a href="./index.html">teamsazan</a>
+
+                <div class="md:hidden text-xs">
+                    <a href="#" class="fa fa-user cursor-pointer"></a>
+                    <a href="./create.html" class="fa fa-plus cursor-pointer mr-5 animate-pulse"></a>
+                </div>
+           
+        </header>
+        <!--end Header -->
+notices
+        
+
+        <!-- start footer -->
+        <footer class="w-full h-64 bg-bg4"></footer>
+    </body>
+</html>

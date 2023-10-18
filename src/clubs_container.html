@@ -1,0 +1,1983 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script
+            defer
+            src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"
+        ></script>
+        <script
+            defer
+            src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+        ></script>
+        <link href="/dist/output.css" rel="stylesheet" />
+        <link
+            rel="stylesheet"
+            href="//use.fontawesome.com/releases/v5.0.7/css/all.css"
+        />
+        <link rel="stylesheet" href="./css/style.css" />
+        <title>آکادمی فوتبال پرسپولیس/ تیمسازان</title>
+    </head>
+
+    <body>
+        <!-- start header -->
+        <header
+            class="w-auto h-80 img-header relative text-gray-100 overflow-hidden"
+            x-data="{ showMenu: false }" 
+            >
+            <!--  menu -->
+            <div
+            @click.outside="showMenu = false"
+                class="shadow w-full h-20 lg:px-28 max-lg:px-3 bg-black/80 flex justify-between items-center"
+            >
+                <div
+                    @click="showMenu =! showMenu"
+                    class="md:hidden flex items-center cursor-pointer"
+                >
+                    <i class="fa fa-bars"></i>
+                </div>
+
+                <ul
+                
+                    :class="{'block absolute w-[50%] max-sm:w-[60%] text-xs h-screen top-0 right-0 z-50 py-10 bg-bg4 max-md:flex flex-col items-center gap-5': showMenu, 'hidden md:flex justify-evenly items-center gap-5': !showMenu}"
+                >
+                    <li>ورود <i class="fa fa-sign-in-alt"></i></li>
+                    <li
+                        class="py-1 px-2 animate-pulse border rounded md:ml-5 max-md:mb-5"
+                    >
+                        افزودن <i class="fa fa-plus"></i>
+                    </li>
+                    <li>خانه <i class="fa fa-home"></i></li>
+                    <li>اطلاع رسانی تست ها <i class="fa fa-bullhorn"></i></li>
+                </ul>
+
+                <a href="./index.html">teamsazan</a>
+
+                <div class="md:hidden text-xs">
+                    <a href="#" class="fa fa-user cursor-pointer"></a>
+                    <a
+                        href="./create.html"
+                        class="fa fa-plus cursor-pointer mr-5 animate-pulse"
+                    ></a>
+                </div>
+            </div>
+            <!--/ menu -->
+            <!-- logo and title club -->
+            <div
+                class="h-64 flex flex-col justify-evenly lg:px-28 max-md:px-10 max-lg:px-16 bg-black/80"
+            >
+                <div class="flex justify-between items-center flex-wrap gap-5">
+                    <h1
+                        class="md:text-3xl max-md:text-2xl max-sm:text-xl yekan font-bold"
+                    >
+                        مدرسه فوتبال پرسپولیس
+                    </h1>
+                    <img
+                        class="md:w-32 sm:w-24 max-sm:w-16 h-auto"
+                        src="./img/پرسپولیس.png"
+                        alt=""
+                    />
+                </div>
+                <div>
+                    <p class="text-xs mb-2">
+                        تهران سعادت اباد بلوار ایران خیابان ایران کوچه ایران
+                        پلاک 33
+                    </p>
+                    <span>
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-telegram"></i>
+                        <i class="fab fa-whatsapp"></i>
+                    </span>
+                </div>
+            </div>
+            <!--/ logo and title club -->
+        </header>
+        <!-- end header -->
+
+        <!-- start containe clubs sport -->
+        <main x-data="menuClus" class="lg:px-28 text-black/70 overflow-hidden">
+            <!-- start menu clubs sport -->
+            <div
+                class="bg-bg4 max-md:overflow-x-scroll text-gray-100 shadow lg:p-2 max-lg:px-3"
+            >
+                <ul class="w-max flex">
+                    <template x-for="(tab, i) in tabs">
+                        <li
+                            @click="selectedTab = tab.name"
+                            class="p-3 rounded max-sm:text-xs"
+                            :class="{'bg-bg3': selectedTab == tab.name}"
+                            x-text="tab.lable"
+                        ></li>
+                    </template>
+                </ul>
+            </div>
+            <!-- end menu clubs sport -->
+
+            <!-- start main clubs sport -->
+            <div class="py-10 max-lg:px-3">
+                <!-- start index school sport -->
+                <section
+                    x-show="selectedTab === 'index'"
+                    x-transition:enter.duration.700ms
+                >
+                    <div class="grid lg:grid-cols-6 sm:grid-cols-4 gap-5">
+                        <!-- bio clubs -->
+                        <div
+                            class="lg:col-span-3 sm:col-span-2 max-sm:order-3 cadr max-h-80"
+                        >
+                            <h2 class="flex items-center gap-2">
+                                <i class="fas fa-align-left"></i>درباره مدرسه
+                                فوتبال پرسپولیس
+                            </h2>
+                            <p class="text-justify">
+                                Lorem ipsum dolor sit amet consectetur,
+                                adipisicing elit. Qui odio architecto nobis.
+                                Nobis a veniam ad asperiores, aperiam
+                                reprehenderit repellendus itaque quo quae iure
+                                debitis nostrum. Voluptatum, quasi sint. Illo.
+                            </p>
+                        </div>
+
+                        <!-- advertising -->
+                        <div
+                            class="lg:col-start-4 lg:col-span-1 sm:col-span-4 max-h-80 flex lg:flex-col gap-5 max-sm:order-2"
+                        >
+                            <div class="sponsor">محل تبلیغ اسپانسر باشگاه</div>
+                            <div class="sponsor max-mo:hidden">
+                                محل تبلیغ اسپانسر باشگاه
+                            </div>
+                        </div>
+
+                        <!-- user satisfaction -->
+                        <div
+                            class="lg:col-start-5 lg:col-span-2 sm:col-start-3 sm:col-span-2 sm:row-start-1 max-sm:order-1 max-h-80 cadr max-sm:text-xs"
+                        >
+                            <div
+                                class="flex flex-col gap-3 pb-3 border-b "
+                            >
+                                رضایت از باشگاه : 64%
+                                <div
+                                    class="h-1 bg-gray-200 rounded-full flex items-center"
+                                >
+                                    <div
+                                        class="w-[64%] h-1 bg-amber-500 rounded-full"
+                                    ></div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="my-5 flex flex-col gap-3 pb-3 border-b "
+                            >
+                                رضایت از مربیان : 88%
+                                <div
+                                    class="h-1 bg-gray-200 rounded-full flex items-center"
+                                >
+                                    <div
+                                        class="w-[88%] h-1 bg-green-500 rounded-full"
+                                    ></div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="flex flex-col gap-5"
+                                x-data="{rating: 0, hovering: 0}"
+                            >
+                                رضایت شما از عملکرد باشگاه !؟
+                                <div class="flex justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <div
+                                            class="fa fa-star transition-all duration-200 cursor-pointer"
+                                            :class="rating >= 1 ? 'text-yellow-400' : 'text-gray-200'"
+                                            @click="rating = 1"
+                                            
+                                            
+                                        ></div>
+                                        <div
+                                            class="fa fa-star transition-all duration-200 cursor-pointer"
+                                            :class="rating >= 2 ? 'text-yellow-400' : 'text-gray-200'"
+                                            @click="rating = 2"
+                                            
+                                            
+                                        ></div>
+                                        <div
+                                            class="fa fa-star transition-all duration-200 cursor-pointer"
+                                            :class="rating >= 3 ? 'text-yellow-400' : 'text-gray-200'"
+                                            @click="rating = 3"
+                                            
+                                            
+                                        ></div>
+                                        <div
+                                            class="fa fa-star transition-all duration-200 cursor-pointer"
+                                            :class="rating >= 4 ? 'text-yellow-400' : 'text-gray-200'"
+                                            @click="rating = 4"
+                                            
+                                            
+                                        ></div>
+                                        <div
+                                            class="fa fa-star transition-all duration-200 cursor-pointer"
+                                            :class="rating >= 5 ? 'text-yellow-400' : 'text-gray-200'"
+                                            @click="rating = 5"
+                                            
+                                            
+                                        ></div>
+                                    </div>
+
+                                    <div
+                                        class="flex items-center justify-center gap-3"
+                                    >
+                                        <input
+                                            id="rating"
+                                            x-model="rating"
+                                            type="text"
+                                            name="rating"
+                                            class="bg-gray-50 w-4 text-center rounded-md"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- possibilities -->
+                        <div
+                            class="lg:col-span-3 sm:col-start-3 sm:col-span-2 max-h-80 cadr max-sm:text-xs max-sm:order-4"
+                        >
+                            <h2 class="flex items-center gap-2">
+                                <i class="fas fa-align-left"></i>
+                                امکانات
+                            </h2>
+                            <div class="grid grid-cols-2 gap-5">
+                                <div class="flex items-center gap-2">
+                                    <i
+                                        class="fa fa-check-circle text-green-500"
+                                    ></i>
+                                    <!-- max lenght => 25 -->
+                                    <h3>زمین چمن طبیعی</h3>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <i
+                                        class="fa fa-check-circle text-green-500"
+                                    ></i>
+                                    <h3>زمین چمن طبیعی</h3>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <i
+                                        class="fa fa-check-circle text-green-500"
+                                    ></i>
+                                    <h3>زمین چمن طبیعی</h3>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <i
+                                        class="fa fa-check-circle text-green-500"
+                                    ></i>
+                                    <h3>زمین چمن طبیعی</h3>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <i
+                                        class="fa fa-check-circle text-green-500"
+                                    ></i>
+                                    <h3>زمین چمن طبیعی</h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- advertising -->
+                        <div
+                            class="lg:col-start-4 lg:col-span-1 sm:col-span-4 max-h-80 flex lg:flex-col gap-5 max-sm:order-5"
+                        >
+                            <div class="sponsor max-mo:hidden">
+                                محل تبلیغ اسپانسر باشگاه
+                            </div>
+                            <div class="sponsor">محل تبلیغ اسپانسر باشگاه</div>
+                        </div>
+
+                        <!-- manager -->
+                        <div
+                            class="lg:col-start-5 lg:col-span-2 lg:row-start-2 sm:col-span-2 sm:row-start-3 max-sm:order-6 max-h-80 relative cadr"
+                        >
+                            <div class="chevron left-4">
+                                <i class="fa fa-chevron-left"></i>
+                            </div>
+                            <div class="chevron right-4">
+                                <i class="fa fa-chevron-right"></i>
+                            </div>
+                            <section
+                            class="w-auto relative flex flex-col"
+                            x-data="Counter()"
+                        >
+                            <div
+                                class="flex flex-col items-center gap-5 relative p-5"
+                            >
+                                <img
+                                    class="w-32 h-32 max-mo:w-28 max-mo:h-28 rounded-full p-1 bg-white object-cover"
+                                    src="./img/darvish.jpg"
+                                    alt=""
+                                />
+                                <span
+                                    class="absolute top-10 left-10 max-mo:left-5 flex flex-col gap-2"
+                                >
+                                    <i class="fab fa-instagram"></i>
+                                    <i class="fab fa-telegram"></i>
+                                    <i class="fab fa-whatsapp"></i>
+                                </span>
+
+                                <h2
+                                    class="py-2 px-4 rounded-full bg-gray-50 shadow"
+                                > <span class="text-gray-500">مدیرعامل</span> : رضا درویش
+                                </h2>
+                                
+
+                                <div
+                                    class="w-full flex justify-evenly"
+                                >
+                                   
+                                        <small
+                                            class="ml-2"
+                                            @click="likeHandler()"
+                                        >
+                                            <i
+                                                x-show="!isLiked"
+                                                class="far fa-heart"
+                                            ></i>
+                                            <i
+                                                x-show="isLiked"
+                                                class="fa fa-heart text-red-500"
+                                            ></i>
+                                            <span x-text="like"></span>
+                                        </small>
+
+                                        <small>
+                                            <i
+                                                class="fa fa-star text-amber-500"
+                                            ></i>
+                                            4.1
+                                        </small>
+                                </div>
+
+                                <div
+                                class="flex justify-evenly gap-5 text-xs border-t pt-1"
+                                x-data="{rating: 0, hovering: 0}"
+                            >
+                                امتیاز شما؟
+                                <div class="flex justify-between gap-5">
+                                    <div class="flex items-center gap-3">
+                                        <div
+                                            class="fa fa-star transition-all duration-200 cursor-pointer"
+                                            :class="rating >= 1 ? 'text-yellow-400' : 'text-gray-200'"
+                                            @click="rating = 1"
+                                            
+                                            
+                                        ></div>
+                                        <div
+                                            class="fa fa-star transition-all duration-200 cursor-pointer"
+                                            :class="rating >= 2 ? 'text-yellow-400' : 'text-gray-200'"
+                                            @click="rating = 2"
+                                            
+                                            
+                                        ></div>
+                                        <div
+                                            class="fa fa-star transition-all duration-200 cursor-pointer"
+                                            :class="rating >= 3 ? 'text-yellow-400' : 'text-gray-200'"
+                                            @click="rating = 3"
+                                            
+                                            
+                                        ></div>
+                                        <div
+                                            class="fa fa-star transition-all duration-200 cursor-pointer"
+                                            :class="rating >= 4 ? 'text-yellow-400' : 'text-gray-200'"
+                                            @click="rating = 4"
+                                            
+                                            
+                                        ></div>
+                                        <div
+                                            class="fa fa-star transition-all duration-200 cursor-pointer"
+                                            :class="rating >= 5 ? 'text-yellow-400' : 'text-gray-200'"
+                                            @click="rating = 5"
+                                            
+                                            
+                                        ></div>
+                                    </div>
+
+                                    <div
+                                        class="flex items-center justify-center gap-3"
+                                    >
+                                        <input
+                                            id="rating"
+                                            x-model="rating"
+                                            type="text"
+                                            name="rating"
+                                            class="bg-gray-50 w-4 text-center rounded-md"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                            <div
+                                x-show="moreInfo"
+                                x-cloak
+                                x-collapse
+                                class="bg-white p-5 text-xs"
+                            >
+                                <h3 class="pb-2 mb-4 border-b w-max">
+                                    رزومه
+                                </h3>
+                                <div
+                                    class="flex justify-between mb-3 bg-gray-100 py-1 px-2"
+                                >
+                                    مدرک مربیگری
+                                    <h3>A آسیا</h3>
+                                </div>
+                                <div>
+                                    <h2 class="mb-2 mr-2">
+                                        مربی نوجوانان ذوب آهن
+                                    </h2>
+                                    <h2 class="mb-2 mr-2">
+                                        مربی جوانان پیکان
+                                    </h2>
+                                    <h2 class="mb-2 mr-2">
+                                        مربی نونهالان سایپا
+                                    </h2>
+                                    <h2 class="mb-2 mr-2">
+                                        مربی زیر 14 سال ذوب آهن
+                                    </h2>
+                                </div>
+                                <div
+                                    class="pt-5 border-t text-xs mt-5"
+                                    x-data="{rating: 0, hovering: 0}"
+                                >
+                                    امتیاز شما!؟
+                                    <div class="flex justify-between mt-3">
+                                        <div
+                                            class="flex items-center gap-1 relative"
+                                        >
+                                            <div
+                                                class="fa fa-star transition-all duration-200 cursor-pointer"
+                                                :class="rating >= 1 ? 'text-yellow-400' : 'text-gray-200'"
+                                                @click="rating = 1"
+                                                
+                                                
+                                            ></div>
+                                            <div
+                                                class="fa fa-star transition-all duration-200 cursor-pointer"
+                                                :class="rating >= 2 ? 'text-yellow-400' : 'text-gray-200'"
+                                                @click="rating = 2"
+                                                
+                                                
+                                            ></div>
+                                            <div
+                                                class="fa fa-star transition-all duration-200 cursor-pointer"
+                                                :class="rating >= 3 ? 'text-yellow-400' : 'text-gray-200'"
+                                                @click="rating = 3"
+                                                
+                                                
+                                            ></div>
+                                            <div
+                                                class="fa fa-star transition-all duration-200 cursor-pointer"
+                                                :class="rating >= 4 ? 'text-yellow-400' : 'text-gray-200'"
+                                                @click="rating = 4"
+                                                
+                                                
+                                            ></div>
+                                            <div
+                                                class="fa fa-star transition-all duration-200 cursor-pointer"
+                                                :class="rating >= 5 ? 'text-yellow-400' : 'text-gray-200'"
+                                                @click="rating = 5"
+                                                
+                                                
+                                            ></div>
+                                        </div>
+
+                                        <input
+                                            id="rating"
+                                            x-model="rating"
+                                            type="text"
+                                            name="rating"
+                                            class="bg-gray-50 w-4 text-center rounded-md mr-5"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        </div>
+
+                        <!-- players -->
+                        <div
+                            class="lg:col-span-3 sm:col-span-2 max-h-80 cadr max-sm:order-7"
+                        >
+                            <h2 class="flex items-center gap-2">
+                                <i class="fas fa-align-left"></i>
+                                بازیکنان
+                            </h2>
+                            <div
+                                class="grid lg:grid-cols-3 mo:grid-cols-2 gap-5 overflow-y-scroll text-xs"
+                            >
+                                <div class="bg-gray-50 shadow p-2">
+                                    <h3>1 - علیرضا بیرانوند (دروازبان)</h3>
+                                </div>
+                                <div class="bg-gray-50 shadow p-2">
+                                    <h3>2 - امید عالیشاه (وینگر)</h3>
+                                </div>
+                                <div class="bg-gray-50 shadow p-2">
+                                    <h3>3 - فرشاد فرجی (دفاع)</h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- kit club -->
+                        <div
+                            class="lg:col-start-5 lg:col-span-2 sm:col-span-2 max-sm:order-8 max-h-80 relative cadr shadow"
+                        >
+                            <h2 class="flex items-center gap-2">
+                                <i class="fas fa-align-left"></i>
+                                کیت
+                            </h2>
+                            <div class="chevron left-4">
+                                <i class="fa fa-chevron-left"></i>
+                            </div>
+                            <div class="chevron right-4">
+                                <i class="fa fa-chevron-right"></i>
+                            </div>
+                            <div class="w-5/12 relative h-36 mx-auto">
+                                <img
+                                    class="w-full h-full object-cover"
+                                    src="./img/کیت1.png"
+                                    alt=""
+                                />
+                                <h3
+                                    class="w-full absolute bottom-4 backdrop-blur-sm bg-black/30 text-white shadow p-2 text-center"
+                                >
+                                    کیت اول
+                                </h3>
+                            </div>
+                            <div
+                                class="w-7/12 mx-auto flex justify-evenly bg-gray-100 p-3"
+                            >
+                                <img
+                                    class="w-8 h-12 cursor-pointer"
+                                    src="./img/کیت1.png"
+                                    alt=""
+                                />
+                                <img
+                                    class="w-8 h-12 cursor-pointer"
+                                    src="./img/کیت2.jpg"
+                                    alt=""
+                                />
+                                <img
+                                    class="w-8 h-12 cursor-pointer"
+                                    src="./img/کیت3.png"
+                                    alt=""
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- end index school sport -->
+
+                <!-- start coach -->
+                <section
+                    x-show="selectedTab === 'coachs'"
+                    x-transition:enter.duration.700ms
+                >
+                    <div class="flex max-lg:flex-col gap-5">
+                        <div
+                            class="lg:w-10/12 max-lg:order-2 grid sm:grid-cols-3 mo:grid-cols-2 gap-5"
+                        >
+                            <section
+                                class="w-auto relative flex flex-col shadow"
+                                x-data="Counter()"
+                            >
+                                <div
+                                    class="flex flex-col items-center gap-5 relative p-5 bg-gray-100"
+                                >
+                                    <img
+                                        class="w-28 h-28 rounded-full p-1 bg-white object-cover"
+                                        src="./img/یحیی.jpg"
+                                        alt=""
+                                    />
+                                    <span
+                                        class="absolute left-5 top-5 flex flex-col gap-2"
+                                    >
+                                        <i class="fab fa-instagram"></i>
+                                        <i class="fab fa-telegram"></i>
+                                        <i class="fab fa-whatsapp"></i>
+                                    </span>
+
+                                    <h2
+                                        class="py-2 px-4 rounded-full bg-white shadow"
+                                    >
+                                        یحیی گل محمدی م
+                                    </h2>
+                                    <small>مربی زیر 12 سال</small>
+
+                                    <div
+                                        class="w-full flex justify-evenly mt-5"
+                                    >
+                                        <span>
+                                            <small
+                                                class="ml-2"
+                                                @click="likeHandler()"
+                                            >
+                                                <i
+                                                    x-show="!isLiked"
+                                                    class="far fa-heart"
+                                                ></i>
+                                                <i
+                                                    x-show="isLiked"
+                                                    class="fa fa-heart text-red-500"
+                                                ></i>
+                                                <span x-text="like"></span>
+                                            </small>
+
+                                            <small>
+                                                <i
+                                                    class="fa fa-star text-amber-500"
+                                                ></i>
+                                                4.1
+                                            </small>
+                                        </span>
+                                        <span class="more">
+                                            <small
+                                                @click="moreInfo=!moreInfo"
+                                                x-text="!moreInfo?'بیشتر':'کمتر'"
+                                            ></small>
+                                            <i
+                                                x-show="!moreInfo"
+                                                class="fa fa-angle-down"
+                                            ></i>
+                                            <i
+                                                x-show="moreInfo"
+                                                class="fa fa-angle-up"
+                                            ></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div
+                                    x-show="moreInfo"
+                                    x-cloak
+                                    x-collapse
+                                    class="bg-white p-5 text-xs"
+                                >
+                                    <h3 class="pb-2 mb-4 border-b w-max">
+                                        رزومه
+                                    </h3>
+                                    <div
+                                        class="flex justify-between mb-3 bg-gray-100 py-1 px-2"
+                                    >
+                                        مدرک مربیگری
+                                        <h3>A آسیا</h3>
+                                    </div>
+                                    <div>
+                                        <h2 class="mb-2 mr-2">
+                                            مربی نوجوانان ذوب آهن
+                                        </h2>
+                                        <h2 class="mb-2 mr-2">
+                                            مربی جوانان پیکان
+                                        </h2>
+                                        <h2 class="mb-2 mr-2">
+                                            مربی نونهالان سایپا
+                                        </h2>
+                                        <h2 class="mb-2 mr-2">
+                                            مربی زیر 14 سال ذوب آهن
+                                        </h2>
+                                    </div>
+                                    <div
+                                        class="pt-5 border-t text-xs mt-5"
+                                        x-data="{rating: 0, hovering: 0}"
+                                    >
+                                        امتیاز شما!؟
+                                        <div class="flex justify-between mt-3">
+                                            <div
+                                                class="flex items-center gap-1 relative"
+                                            >
+                                                <div
+                                                    class="fa fa-star transition-all duration-200 cursor-pointer"
+                                                    :class="rating >= 1 ? 'text-yellow-400' : 'text-gray-200'"
+                                                    @click="rating = 1"
+                                                    
+                                                    
+                                                ></div>
+                                                <div
+                                                    class="fa fa-star transition-all duration-200 cursor-pointer"
+                                                    :class="rating >= 2 ? 'text-yellow-400' : 'text-gray-200'"
+                                                    @click="rating = 2"
+                                                    
+                                                    
+                                                ></div>
+                                                <div
+                                                    class="fa fa-star transition-all duration-200 cursor-pointer"
+                                                    :class="rating >= 3 ? 'text-yellow-400' : 'text-gray-200'"
+                                                    @click="rating = 3"
+                                                    
+                                                    
+                                                ></div>
+                                                <div
+                                                    class="fa fa-star transition-all duration-200 cursor-pointer"
+                                                    :class="rating >= 4 ? 'text-yellow-400' : 'text-gray-200'"
+                                                    @click="rating = 4"
+                                                    
+                                                    
+                                                ></div>
+                                                <div
+                                                    class="fa fa-star transition-all duration-200 cursor-pointer"
+                                                    :class="rating >= 5 ? 'text-yellow-400' : 'text-gray-200'"
+                                                    @click="rating = 5"
+                                                    
+                                                    
+                                                ></div>
+                                            </div>
+
+                                            <input
+                                                id="rating"
+                                                x-model="rating"
+                                                type="text"
+                                                name="rating"
+                                                class="bg-gray-50 w-4 text-center rounded-md mr-5"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <section
+                                class="w-auto relative flex flex-col shadow"
+                                x-data="Counter()"
+                            >
+                                <div
+                                    class="flex flex-col items-center gap-5 relative p-5 bg-gray-100"
+                                >
+                                    <img
+                                        class="w-28 h-28 rounded-full p-1 bg-white object-cover"
+                                        src="./img/یحیی.jpg"
+                                        alt=""
+                                    />
+                                    <span
+                                        class="absolute left-5 top-5 flex flex-col gap-2"
+                                    >
+                                        <i class="fab fa-instagram"></i>
+                                        <i class="fab fa-telegram"></i>
+                                        <i class="fab fa-whatsapp"></i>
+                                    </span>
+
+                                    <h2
+                                        class="py-2 px-4 rounded-full bg-white shadow"
+                                    >
+                                        یحیی گل محمدی م
+                                    </h2>
+                                    <small>مربی زیر 12 سال</small>
+
+                                    <div
+                                        class="w-full flex justify-evenly mt-5"
+                                    >
+                                        <span>
+                                            <small
+                                                class="ml-2"
+                                                @click="likeHandler()"
+                                            >
+                                                <i
+                                                    x-show="!isLiked"
+                                                    class="far fa-heart"
+                                                ></i>
+                                                <i
+                                                    x-show="isLiked"
+                                                    class="fa fa-heart text-red-500"
+                                                ></i>
+                                                <span x-text="like"></span>
+                                            </small>
+
+                                            <small>
+                                                <i
+                                                    class="fa fa-star text-amber-500"
+                                                ></i>
+                                                4.1
+                                            </small>
+                                        </span>
+                                        <span class="more">
+                                            <small
+                                                @click="moreInfo=!moreInfo"
+                                                x-text="!moreInfo?'بیشتر':'کمتر'"
+                                            ></small>
+                                            <i
+                                                x-show="!moreInfo"
+                                                class="fa fa-angle-down"
+                                            ></i>
+                                            <i
+                                                x-show="moreInfo"
+                                                class="fa fa-angle-up"
+                                            ></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div
+                                    x-show="moreInfo"
+                                    x-cloak
+                                    x-collapse
+                                    class="bg-white p-5 text-xs"
+                                >
+                                    <h3 class="pb-2 mb-4 border-b w-max">
+                                        رزومه
+                                    </h3>
+                                    <div
+                                        class="flex justify-between mb-3 bg-gray-100 py-1 px-2"
+                                    >
+                                        مدرک مربیگری
+                                        <h3>A آسیا</h3>
+                                    </div>
+                                    <div>
+                                        <h2 class="mb-2 mr-2">
+                                            مربی نوجوانان ذوب آهن
+                                        </h2>
+                                        <h2 class="mb-2 mr-2">
+                                            مربی جوانان پیکان
+                                        </h2>
+                                        <h2 class="mb-2 mr-2">
+                                            مربی نونهالان سایپا
+                                        </h2>
+                                        <h2 class="mb-2 mr-2">
+                                            مربی زیر 14 سال ذوب آهن
+                                        </h2>
+                                    </div>
+                                    <div
+                                        class="pt-5 border-t text-xs mt-5"
+                                        x-data="{rating: 0, hovering: 0}"
+                                    >
+                                        امتیاز شما!؟
+                                        <div class="flex justify-between mt-3">
+                                            <div
+                                                class="flex items-center gap-1 relative"
+                                            >
+                                                <div
+                                                    class="fa fa-star transition-all duration-200 cursor-pointer"
+                                                    :class="rating >= 1 ? 'text-yellow-400' : 'text-gray-200'"
+                                                    @click="rating = 1"
+                                                    
+                                                    
+                                                ></div>
+                                                <div
+                                                    class="fa fa-star transition-all duration-200 cursor-pointer"
+                                                    :class="rating >= 2 ? 'text-yellow-400' : 'text-gray-200'"
+                                                    @click="rating = 2"
+                                                    
+                                                    
+                                                ></div>
+                                                <div
+                                                    class="fa fa-star transition-all duration-200 cursor-pointer"
+                                                    :class="rating >= 3 ? 'text-yellow-400' : 'text-gray-200'"
+                                                    @click="rating = 3"
+                                                    
+                                                    
+                                                ></div>
+                                                <div
+                                                    class="fa fa-star transition-all duration-200 cursor-pointer"
+                                                    :class="rating >= 4 ? 'text-yellow-400' : 'text-gray-200'"
+                                                    @click="rating = 4"
+                                                    
+                                                    
+                                                ></div>
+                                                <div
+                                                    class="fa fa-star transition-all duration-200 cursor-pointer"
+                                                    :class="rating >= 5 ? 'text-yellow-400' : 'text-gray-200'"
+                                                    @click="rating = 5"
+                                                    
+                                                    
+                                                ></div>
+                                            </div>
+
+                                            <input
+                                                id="rating"
+                                                x-model="rating"
+                                                type="text"
+                                                name="rating"
+                                                class="bg-gray-50 w-4 text-center rounded-md mr-5"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+
+                            <section
+                                class="w-auto relative flex flex-col shadow"
+                                x-data="Counter()"
+                            >
+                                <div
+                                    class="flex flex-col items-center gap-5 relative p-5 bg-gray-100"
+                                >
+                                    <img
+                                        class="w-28 h-28 rounded-full p-1 bg-white object-cover"
+                                        src="./img/یحیی.jpg"
+                                        alt=""
+                                    />
+                                    <span
+                                        class="absolute left-5 top-5 flex flex-col gap-2"
+                                    >
+                                        <i class="fab fa-instagram"></i>
+                                        <i class="fab fa-telegram"></i>
+                                        <i class="fab fa-whatsapp"></i>
+                                    </span>
+
+                                    <h2
+                                        class="py-2 px-4 rounded-full bg-white shadow"
+                                    >
+                                        یحیی گل محمدی م
+                                    </h2>
+                                    <small>مربی زیر 12 سال</small>
+
+                                    <div
+                                        class="w-full flex justify-evenly mt-5"
+                                    >
+                                        <span>
+                                            <small
+                                                class="ml-2"
+                                                @click="likeHandler()"
+                                            >
+                                                <i
+                                                    x-show="!isLiked"
+                                                    class="far fa-heart"
+                                                ></i>
+                                                <i
+                                                    x-show="isLiked"
+                                                    class="fa fa-heart text-red-500"
+                                                ></i>
+                                                <span x-text="like"></span>
+                                            </small>
+
+                                            <small>
+                                                <i
+                                                    class="fa fa-star text-amber-500"
+                                                ></i>
+                                                4.1
+                                            </small>
+                                        </span>
+                                        <span class="more">
+                                            <small
+                                                @click="moreInfo=!moreInfo"
+                                                x-text="!moreInfo?'بیشتر':'کمتر'"
+                                            ></small>
+                                            <i
+                                                x-show="!moreInfo"
+                                                class="fa fa-angle-down"
+                                            ></i>
+                                            <i
+                                                x-show="moreInfo"
+                                                class="fa fa-angle-up"
+                                            ></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div
+                                    x-show="moreInfo"
+                                    x-cloak
+                                    x-collapse
+                                    class="bg-white p-5 text-xs"
+                                >
+                                    <h3 class="pb-2 mb-4 border-b w-max">
+                                        رزومه
+                                    </h3>
+                                    <div
+                                        class="flex justify-between mb-3 bg-gray-100 py-1 px-2"
+                                    >
+                                        مدرک مربیگری
+                                        <h3>A آسیا</h3>
+                                    </div>
+                                    <div>
+                                        <h2 class="mb-2 mr-2">
+                                            مربی نوجوانان ذوب آهن
+                                        </h2>
+                                        <h2 class="mb-2 mr-2">
+                                            مربی جوانان پیکان
+                                        </h2>
+                                        <h2 class="mb-2 mr-2">
+                                            مربی نونهالان سایپا
+                                        </h2>
+                                        <h2 class="mb-2 mr-2">
+                                            مربی زیر 14 سال ذوب آهن
+                                        </h2>
+                                    </div>
+                                    <div
+                                        class="pt-5 border-t text-xs mt-5"
+                                        x-data="{rating: 0, hovering: 0}"
+                                    >
+                                        امتیاز شما!؟
+                                        <div class="flex justify-between mt-3">
+                                            <div
+                                                class="flex items-center gap-1 relative"
+                                            >
+                                                <div
+                                                    class="fa fa-star transition-all duration-200 cursor-pointer"
+                                                    :class="rating >= 1 ? 'text-yellow-400' : 'text-gray-200'"
+                                                    @click="rating = 1"
+                                                    
+                                                    
+                                                ></div>
+                                                <div
+                                                    class="fa fa-star transition-all duration-200 cursor-pointer"
+                                                    :class="rating >= 2 ? 'text-yellow-400' : 'text-gray-200'"
+                                                    @click="rating = 2"
+                                                    
+                                                    
+                                                ></div>
+                                                <div
+                                                    class="fa fa-star transition-all duration-200 cursor-pointer"
+                                                    :class="rating >= 3 ? 'text-yellow-400' : 'text-gray-200'"
+                                                    @click="rating = 3"
+                                                    
+                                                    
+                                                ></div>
+                                                <div
+                                                    class="fa fa-star transition-all duration-200 cursor-pointer"
+                                                    :class="rating >= 4 ? 'text-yellow-400' : 'text-gray-200'"
+                                                    @click="rating = 4"
+                                                    
+                                                    
+                                                ></div>
+                                                <div
+                                                    class="fa fa-star transition-all duration-200 cursor-pointer"
+                                                    :class="rating >= 5 ? 'text-yellow-400' : 'text-gray-200'"
+                                                    @click="rating = 5"
+                                                    
+                                                    
+                                                ></div>
+                                            </div>
+
+                                            <input
+                                                id="rating"
+                                                x-model="rating"
+                                                type="text"
+                                                name="rating"
+                                                class="bg-gray-50 w-4 text-center rounded-md mr-5"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+
+                            <section
+                                class="w-auto relative flex flex-col shadow"
+                                x-data="Counter()"
+                            >
+                                <div
+                                    class="flex flex-col items-center gap-5 relative p-5 bg-gray-100"
+                                >
+                                    <img
+                                        class="w-28 h-28 rounded-full p-1 bg-white object-cover"
+                                        src="./img/یحیی.jpg"
+                                        alt=""
+                                    />
+                                    <span
+                                        class="absolute left-5 top-5 flex flex-col gap-2"
+                                    >
+                                        <i class="fab fa-instagram"></i>
+                                        <i class="fab fa-telegram"></i>
+                                        <i class="fab fa-whatsapp"></i>
+                                    </span>
+
+                                    <h2
+                                        class="py-2 px-4 rounded-full bg-white shadow"
+                                    >
+                                        یحیی گل محمدی م
+                                    </h2>
+                                    <small>مربی زیر 12 سال</small>
+
+                                    <div
+                                        class="w-full flex justify-evenly mt-5"
+                                    >
+                                        <span>
+                                            <small
+                                                class="ml-2"
+                                                @click="likeHandler()"
+                                            >
+                                                <i
+                                                    x-show="!isLiked"
+                                                    class="far fa-heart"
+                                                ></i>
+                                                <i
+                                                    x-show="isLiked"
+                                                    class="fa fa-heart text-red-500"
+                                                ></i>
+                                                <span x-text="like"></span>
+                                            </small>
+
+                                            <small>
+                                                <i
+                                                    class="fa fa-star text-amber-500"
+                                                ></i>
+                                                4.1
+                                            </small>
+                                        </span>
+                                        <span class="more">
+                                            <small
+                                                @click="moreInfo=!moreInfo"
+                                                x-text="!moreInfo?'بیشتر':'کمتر'"
+                                            ></small>
+                                            <i
+                                                x-show="!moreInfo"
+                                                class="fa fa-angle-down"
+                                            ></i>
+                                            <i
+                                                x-show="moreInfo"
+                                                class="fa fa-angle-up"
+                                            ></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div
+                                    x-show="moreInfo"
+                                    x-cloak
+                                    x-collapse
+                                    class="bg-white p-5 text-xs"
+                                >
+                                    <h3 class="pb-2 mb-4 border-b w-max">
+                                        رزومه
+                                    </h3>
+                                    <div
+                                        class="flex justify-between mb-3 bg-gray-100 py-1 px-2"
+                                    >
+                                        مدرک مربیگری
+                                        <h3>A آسیا</h3>
+                                    </div>
+                                    <div>
+                                        <h2 class="mb-2 mr-2">
+                                            مربی نوجوانان ذوب آهن
+                                        </h2>
+                                        <h2 class="mb-2 mr-2">
+                                            مربی جوانان پیکان
+                                        </h2>
+                                        <h2 class="mb-2 mr-2">
+                                            مربی نونهالان سایپا
+                                        </h2>
+                                        <h2 class="mb-2 mr-2">
+                                            مربی زیر 14 سال ذوب آهن
+                                        </h2>
+                                    </div>
+                                    <div
+                                        class="pt-5 border-t text-xs mt-5"
+                                        x-data="{rating: 0, hovering: 0}"
+                                    >
+                                        امتیاز شما!؟
+                                        <div class="flex justify-between mt-3">
+                                            <div
+                                                class="flex items-center gap-1 relative"
+                                            >
+                                                <div
+                                                    class="fa fa-star transition-all duration-200 cursor-pointer"
+                                                    :class="rating >= 1 ? 'text-yellow-400' : 'text-gray-200'"
+                                                    @click="rating = 1"
+                                                    
+                                                    
+                                                ></div>
+                                                <div
+                                                    class="fa fa-star transition-all duration-200 cursor-pointer"
+                                                    :class="rating >= 2 ? 'text-yellow-400' : 'text-gray-200'"
+                                                    @click="rating = 2"
+                                                    
+                                                    
+                                                ></div>
+                                                <div
+                                                    class="fa fa-star transition-all duration-200 cursor-pointer"
+                                                    :class="rating >= 3 ? 'text-yellow-400' : 'text-gray-200'"
+                                                    @click="rating = 3"
+                                                    
+                                                    
+                                                ></div>
+                                                <div
+                                                    class="fa fa-star transition-all duration-200 cursor-pointer"
+                                                    :class="rating >= 4 ? 'text-yellow-400' : 'text-gray-200'"
+                                                    @click="rating = 4"
+                                                    
+                                                    
+                                                ></div>
+                                                <div
+                                                    class="fa fa-star transition-all duration-200 cursor-pointer"
+                                                    :class="rating >= 5 ? 'text-yellow-400' : 'text-gray-200'"
+                                                    @click="rating = 5"
+                                                    
+                                                    
+                                                ></div>
+                                            </div>
+
+                                            <input
+                                                id="rating"
+                                                x-model="rating"
+                                                type="text"
+                                                name="rating"
+                                                class="bg-gray-50 w-4 text-center rounded-md mr-5"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                        
+                        </div>
+
+                        <div
+                            class="lg:w-2/12 max-lg:order-1 flex lg:flex-col gap-5"
+                        >
+                            <div class="sponsor">محل تبلیغ اسپانسر باشگاه</div>
+                            <div class="sponsor max-mo:hidden">
+                                محل تبلیغ اسپانسر باشگاه
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- end coach -->
+
+                <!-- start honors school sport -->
+                <section
+                    x-show="selectedTab === 'honors'"
+                    x-transition:enter.duration.700ms
+                >
+                    <div class="flex flex-wrap gap-5">
+                        <div class="flex-auto h-max cadr">
+                            <h2 class="flex items-center gap-2">
+                                <i class="fas fa-align-left"></i>
+                                افتخارات
+                            </h2>
+                            <div class="h-64 max-sm:text-xs">
+                                <div class="flex items-center gap-2 mb-3">
+                                    <i
+                                        class="fa fa-check-circle text-green-600"
+                                    ></i>
+                                    <!-- max lenght => 25 -->
+                                    <h3>قهرمانی لیگ نونهالان کشور</h3>
+                                </div>
+
+                                <div class="flex items-center gap-2 mb-3">
+                                    <i
+                                        class="fa fa-check-circle text-green-600"
+                                    ></i>
+                                    <!-- max lenght => 25 -->
+                                    <h3>قهرمانی لیگ نونهالان کشور</h3>
+                                </div>
+
+                                <div class="flex items-center gap-2 mb-3">
+                                    <i
+                                        class="fa fa-check-circle text-green-600"
+                                    ></i>
+                                    <!-- max lenght => 25 -->
+                                    <h3>قهرمانی لیگ نونهالان کشور</h3>
+                                </div>
+
+                                <div class="flex items-center gap-2 mb-3">
+                                    <i
+                                        class="fa fa-check-circle text-green-600"
+                                    ></i>
+                                    <!-- max lenght => 25 -->
+                                    <h3>قهرمانی لیگ نونهالان کشور</h3>
+                                </div>
+
+                                <div class="flex items-center gap-2 mb-3">
+                                    <i
+                                        class="fa fa-check-circle text-green-600"
+                                    ></i>
+                                    <!-- max lenght => 25 -->
+                                    <h3>قهرمانی لیگ نونهالان کشور</h3>
+                                </div>
+
+                                <div class="flex items-center gap-2 mb-3">
+                                    <i
+                                        class="fa fa-check-circle text-green-600"
+                                    ></i>
+                                    <!-- max lenght => 25 -->
+                                    <h3>قهرمانی لیگ نونهالان کشور</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="flex-auto flex mo:flex-col gap-5 max-mo:w-full"
+                        >
+                            <div class="sponsor">محل تبلیغ اسپانسر باشگاه</div>
+                            <div class="sponsor max-mo:hidden">
+                                محل تبلیغ اسپانسر باشگاه
+                            </div>
+                        </div>
+                        <div class="flex-auto h-max cadr">
+                            <div>
+                                <h2 class="flex items-center gap-2">
+                                    <i class="fas fa-align-left"></i>
+                                    بازیکنان موفق
+                                </h2>
+                            </div>
+                            <div class="grid mo:grid-cols-2 gap-5">
+                                <div
+                                    class="flex flex-col gap-5 p-2 justify-center items-center bg-gray-100 shadow"
+                                >
+                                    <img
+                                        class="w-28 h-28 object-cover rounded-full"
+                                        src="./img/سروش.jpg"
+                                        alt=""
+                                    />
+                                    <h4>سروش رفیعی</h4>
+                                    <h5 class="bg-white p-2 text-xs">
+                                        باشگاه : پرسپولیس
+                                    </h5>
+                                </div>
+
+                                <div
+                                    class="flex flex-col gap-5 p-2 justify-center items-center bg-gray-100 shadow"
+                                >
+                                    <img
+                                        class="w-28 h-28 object-cover rounded-full"
+                                        src="./img/سروش.jpg"
+                                        alt=""
+                                    />
+                                    <h4>سروش رفیعی</h4>
+                                    <h5 class="bg-white p-2 text-xs">
+                                        باشگاه : پرسپولیس
+                                    </h5>
+                                </div>
+
+                                <div
+                                    class="flex flex-col gap-5 p-2 justify-center items-center bg-gray-100 shadow"
+                                >
+                                    <img
+                                        class="w-28 h-28 object-cover rounded-full"
+                                        src="./img/سروش.jpg"
+                                        alt=""
+                                    />
+                                    <h4>سروش رفیعی</h4>
+                                    <h5 class="bg-white p-2 text-xs">
+                                        باشگاه : پرسپولیس
+                                    </h5>
+                                </div>
+
+                                <div
+                                    class="flex flex-col gap-5 p-2 justify-center items-center bg-gray-100 shadow"
+                                >
+                                    <img
+                                        class="w-28 h-28 object-cover rounded-full"
+                                        src="./img/سروش.jpg"
+                                        alt=""
+                                    />
+                                    <h4>سروش رفیعی</h4>
+                                    <h5 class="bg-white p-2 text-xs">
+                                        باشگاه : پرسپولیس
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- end honors school sport -->
+
+                <!-- start test school sport -->
+                <section
+                    x-show="selectedTab === 'testFootball'"
+                    x-transition:enter.duration.700ms
+                >
+                    <div class="flex flex-wrap gap-5">
+                        <div class="flex-auto h-64">
+                            <div
+                                class="flex items-center justify-between p-1 bg-white mb-5 hover:shadow transition max-sm:text-xs"
+                            >
+                                <div>
+                                    <i class="far fa-arrow-alt-circle-down"></i>
+                                    استعدادیابی رده سنی زیر 15 سال
+                                </div>
+                                <div class="flex gap-2 mr-5">
+                                    <small>
+                                        <i class="fa fa-heart text-red-400"></i>
+                                        42
+                                    </small>
+                                    <small>
+                                        <i
+                                            class="fa fa-star text-yellow-400"
+                                        ></i>
+                                        4/2
+                                    </small>
+                                </div>
+                            </div>
+                            <div
+                                class="flex items-center justify-between p-1 bg-white mb-5 hover:shadow transition max-sm:text-xs"
+                            >
+                                <div>
+                                    <i class="far fa-arrow-alt-circle-down"></i>
+                                    استعدادیابی رده سنی زیر 15 سال
+                                </div>
+                                <div class="flex gap-2 mr-5">
+                                    <small>
+                                        <i class="fa fa-heart text-red-400"></i>
+                                        42
+                                    </small>
+                                    <small>
+                                        <i
+                                            class="fa fa-star text-yellow-400"
+                                        ></i>
+                                        4/2
+                                    </small>
+                                </div>
+                            </div>
+                            <div
+                                class="flex items-center justify-between p-1 bg-white mb-5 hover:shadow transition max-sm:text-xs"
+                            >
+                                <div>
+                                    <i class="far fa-arrow-alt-circle-down"></i>
+                                    استعدادیابی رده سنی زیر 15 سال
+                                </div>
+                                <div class="flex gap-2 mr-5">
+                                    <small>
+                                        <i class="fa fa-heart text-red-400"></i>
+                                        42
+                                    </small>
+                                    <small>
+                                        <i
+                                            class="fa fa-star text-yellow-400"
+                                        ></i>
+                                        4/2
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="flex-auto flex mo:flex-col gap-5 max-mo:w-full"
+                        >
+                            <div class="sponsor">محل تبلیغ اسپانسر باشگاه</div>
+                            <div class="sponsor max-mo:hidden">
+                                محل تبلیغ اسپانسر باشگاه
+                            </div>
+                        </div>
+                        <div class="flex-auto h-max cadr">
+                            <div class="flex flex-wrap justify-between gap-5">
+                                <div class="h-max max-mo:order-2 flex flex-col gap-10"
+                                >
+                                    <h2>جهت جضور قدرتمند در لیگ استان استان</h2>
+                                    <h3>رده سنی نونهالان</h3>
+                                    <h4>زیر نظر سید جلال حسینی</h4>
+                                    <h5>
+                                        راه های ارتباطی :
+                                        <span> 09121234567 - 09128765432 </span>
+                                    </h5>
+                                    <h4>تاریخ : از 15 الی 20 شهریور</h4>
+                                    <h5>ساعت : 15:30 الی 18:30</h5>
+                                    <h4>
+                                        محل تست گیری : تهران اتوبان آزاداگان
+                                        ورزشاه شهید کاظمی
+                                    </h4>
+                                    <div>
+                                        <span class="my-5">
+                                            توضیحات بیشتر :
+                                        </span>
+                                        <p>بیمه ورزش الزامی می باشد</p>
+                                    </div>
+                                </div>
+                                <div class="w-36 h-auto max-mo:order-1">
+                                    <img src="./img/تست.jpg" alt="" />
+                                </div>
+                            </div>
+                            <div
+                                class="pt-5 border-t text-xs mt-5 flex max-mo:flex-col items-center gap-10"
+                                x-data="{rating: 0, hovering: 0}"
+                            >
+                                امتیاز شما!؟
+                                <div class="flex justify-between items-center mt-3">
+                                    <div
+                                        class="flex items-center gap-1 relative"
+                                    >
+                                        <div
+                                            class="fa fa-star transition-all duration-200 cursor-pointer"
+                                            :class="rating >= 1 ? 'text-yellow-400' : 'text-gray-200'"
+                                            @click="rating = 1"
+                                            
+                                            
+                                        ></div>
+                                        <div
+                                            class="fa fa-star transition-all duration-200 cursor-pointer"
+                                            :class="rating >= 2 ? 'text-yellow-400' : 'text-gray-200'"
+                                            @click="rating = 2"
+                                            
+                                            
+                                        ></div>
+                                        <div
+                                            class="fa fa-star transition-all duration-200 cursor-pointer"
+                                            :class="rating >= 3 ? 'text-yellow-400' : 'text-gray-200'"
+                                            @click="rating = 3"
+                                            
+                                            
+                                        ></div>
+                                        <div
+                                            class="fa fa-star transition-all duration-200 cursor-pointer"
+                                            :class="rating >= 4 ? 'text-yellow-400' : 'text-gray-200'"
+                                            @click="rating = 4"
+                                            
+                                            
+                                        ></div>
+                                        <div
+                                            class="fa fa-star transition-all duration-200 cursor-pointer"
+                                            :class="rating >= 5 ? 'text-yellow-400' : 'text-gray-200'"
+                                            @click="rating = 5"
+                                            
+                                            
+                                        ></div>
+                                    </div>
+
+                                    <input
+                                        id="rating"
+                                        x-model="rating"
+                                        type="text"
+                                        name="rating"
+                                        class="bg-gray-50 w-4 text-center rounded-md mr-5"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- end test school sport -->
+
+                <!-- start gallery school sport -->
+                <section
+                    x-show="selectedTab === 'gallery'"
+                    x-transition:enter.duration.700ms
+                >
+                    <div class="flex max-md:flex-col gap-5">
+                        <div class="md:w-10/12 max-md:order-2 cadr">
+                            <h2 class="flex items-center gap-1">
+                                <i class="fa fa-align-left"></i>
+                                گالری تصاویر
+                            </h2>
+                            <div class="grid mo:grid-cols-2 gap-5">
+                                <div class="w-auto h-auto">
+                                    <img
+                                        class="w-full h-full object-cover"
+                                        src="./img/آکادمی1.png"
+                                        alt=""
+                                    />
+                                </div>
+                                <div class="w-auto h-auto">
+                                    <img
+                                        class="w-full h-full object-cover"
+                                        src="./img/آکدمی 2.jpg"
+                                        alt=""
+                                    />
+                                </div>
+
+                                <div class="w-auto h-auto">
+                                    <img
+                                        class="w-full h-full object-cover"
+                                        src="./img/آکادمی3.jpg"
+                                        alt=""
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="md:w-2/12 flex md:flex-col max-md:order-1 gap-5"
+                        >
+                            <div class="sponsor">محل تبلیغ اسپانسر باشگاه</div>
+                            <div class="sponsor max-mo:hidden">محل تبلیغ اسپانسر باشگاه</div>
+                        </div>
+                        
+                        
+                    </div>
+                </section>
+                <!-- end gallery school sport -->
+
+                <!-- start contact school sport -->
+                <section
+                    x-show="selectedTab === 'contact'"
+                    x-transition:enter.duration.700ms
+                >
+                    <div class="flex flex-wrap gap-5 max-sm:text-xs">
+                        <div class="flex-auto cadr">
+                            <h2 class="flex items-center gap-2">
+                                <i class="fa fa-align-left"></i>
+                                راه های ارتباطی
+                            </h2>
+
+                            <div class="flex flex-col gap-3">
+                                <div>
+                                    <i
+                                        class="cursor-pointer text-lg fab fa-instagram social transition-all"
+                                    ></i>
+                                    <i
+                                        class="cursor-pointer text-lg fab fa-telegram social transition-all"
+                                    ></i>
+                                    <i
+                                        class="cursor-pointer text-lg fab fa-whatsapp social transition-all"
+                                    ></i>
+                                </div>
+
+                                <div>
+                                    تلفن:
+                                    <span>02112345678 - 02112345678</span>
+                                </div>
+                                <div>
+                                    <i class="fas fa-phone"></i>
+                                    موبایل:
+                                    <span>09121234567 - 09121234567</span>
+                                </div>
+                                <div
+                                    class="border-t-2 border-solid border-gray-200 pt-5"
+                                >
+                                    <i class="fa fa-map-marker-alt"></i>
+                                    آدرس :
+                                    <span>
+                                        تهران، سعادت آباد، میدان ایران، کوچه
+                                        ایرانف پلاک 6
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex-auto flex flex-col gap-5">
+                            <div class="sponsor max-mo:hidden">محل تبلیغ اسپانسر باشگاه</div>
+                            <div class="sponsor">محل تبلیغ اسپانسر باشگاه</div>
+                        </div>
+                        <div class="flex-auto ">
+                            <iframe
+                                class="w-full h-full shadow"
+                                src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d1619.0391060816569!2d51.382316200122354!3d35.7488823452689!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfa!2s!4v1693032996576!5m2!1sfa!2s"
+                                width="600"
+                                height="500"
+                                style="border: 1px solid #dbdbdb"
+                                allowfullscreen=""
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"
+                            ></iframe>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-5 cadr mt-5 max-sm:text-xs">
+                        <div>
+                            <h3>محل تمرین شماره یک</h3>
+                            <div class="pt-2 text-xs">
+                                <i class="fa fa-map-marker-alt"></i>
+                                آدرس : تهران، سعادت آباد، میدان ایران، کوچه
+                                ایرانف پلاک 6
+                            </div>
+                        </div>
+                        <div>
+                            <h3>محل تمرین شماره دو</h3>
+                            <div class="pt-2 text-xs">
+                                <i class="fa fa-map-marker-alt"></i>
+                                آدرس : تهران، سعادت آباد، میدان ایران، کوچه
+                                ایرانف پلاک 6
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- end contact school sport -->
+
+                <!-- start usercomments school sport -->
+                <section
+                    x-show="selectedTab === 'usercomments'"
+                    x-transition:enter.duration.700ms
+                    class="flex flex-col gap-5"
+                >
+                    <div class="cadr">
+                        <div class="">
+                            <div class="flex justify-between max-md:flex-col gap-10 max-mo:text-xs">
+                                <div class="flex items-center max-mo:flex-col gap-3">
+                                    رضایت از باشگاه 
+                                    <div
+                                        class="w-48 h-1 bg-gray-200 rounded-full flex items-center"
+                                    >
+                                        <div
+                                            class="w-28 h-1 bg-amber-500 rounded-full"
+                                        ></div>
+                                    </div>
+                                    64%
+                                </div>
+
+                                <div class="flex items-center max-mo:flex-col gap-3">
+                                    رضایت از مربیان 
+                                    <div
+                                        class="w-48 h-1 bg-gray-200 rounded-full flex items-center"
+                                    >
+                                        <div
+                                            class="w-40 h-1 bg-green-500 rounded-full"
+                                        ></div>
+                                    </div>
+                                    88%
+                                </div>
+                            </div>
+
+
+                            <div
+                                class="flex items-center max-mo:flex-col gap-10 mt-10 border-t-2 py-5 text-xs"
+                                x-data="{rating: 0, hovering: 0}"
+                            >
+                                رضایت شما از عملکرد باشگاه !؟
+                               <div class="flex gap-5">
+                                <div class="flex items-center gap-3 relative">
+                                    <div
+                                        class="fa fa-star transition-all duration-200 cursor-pointer"
+                                        :class="rating >= 1 ? 'text-yellow-400' : 'text-gray-200'"
+                                        @click="rating = 1"
+                                        
+                                        
+                                    ></div>
+                                    <div
+                                        class="fa fa-star transition-all duration-200 cursor-pointer"
+                                        :class="rating >= 2 ? 'text-yellow-400' : 'text-gray-200'"
+                                        @click="rating = 2"
+                                        
+                                        
+                                    ></div>
+                                    <div
+                                        class="fa fa-star transition-all duration-200 cursor-pointer"
+                                        :class="rating >= 3 ? 'text-yellow-400' : 'text-gray-200'"
+                                        @click="rating = 3"
+                                        
+                                        
+                                    ></div>
+                                    <div
+                                        class="fa fa-star transition-all duration-200 cursor-pointer"
+                                        :class="rating >= 4 ? 'text-yellow-400' : 'text-gray-200'"
+                                        @click="rating = 4"
+                                        
+                                        
+                                    ></div>
+                                    <div
+                                        class="fa fa-star transition-all duration-200 cursor-pointer"
+                                        :class="rating >= 5 ? 'text-yellow-400' : 'text-gray-200'"
+                                        @click="rating = 5"
+                                        
+                                        
+                                    ></div>
+                                </div>
+
+                                <div
+                                    class="flex items-center justify-center gap-3"
+                                >
+                                    <input
+                                        id="rating"
+                                        x-model="rating"
+                                        type="text"
+                                        name="rating"
+                                        class="bg-gray-50 w-4 text-center rounded-md"
+                                    />
+                                </div>
+                               </div> 
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex max-sm:flex-col gap-5">
+                        <form action="" class="flex-auto flex flex-col gap-5 max-sm:order-2">
+                            <textarea
+                                class="w-full outline-none focus:border border-solid border-bg1 bg-white p-5 shadow"
+                                rows="10"
+                                name=""
+                                id=""
+                                placeholder="نظرات خود را بیان نمائید"
+                            ></textarea>
+                            <div class="flex justify-end">
+                                <button
+                                    class="bg-bg3 text-bg5 px-4 py-2 hover:text-bg1 hover:bg-bg4 rounded-lg shadow transition-all"
+                                >
+                                    ارسال
+                                </button>
+                            </div>
+                        </form>
+                        
+                        <div class="flex-auto flex max-mo:flex-col gap-5 max-sm:order-1">
+                            <div class="sponsor">محل تبلیغ اسپانسر باشگاه</div>
+                            <div class="sponsor max-mo:hidden">محل تبلیغ اسپانسر باشگاه</div>
+                        </div>
+                        
+                    </div>
+                    <div class="border-t pt-10 max-mo:text-xs">
+                        <div class="flex justify-between bg-white p-3">
+                            <div><span>12 </span>دیدگاه</div>
+                            <div>
+                                <select
+                                    name=""
+                                    id=""
+                                >
+                                    <option value="">جدیدترین</option>
+                                    <option value="">قدیمی ترین</option>
+                                    <option value="">محبوب ترین</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mt-5 text-gray-500 text-xs bg-gray-50 p-5">
+                            <div>
+                                <div
+                                    class="flex flex-wrap justify-between gap-2 border-b pb-1"
+                                >
+                                    <div class="">
+                                        <span
+                                            class="text-bg4 font-semibold text-sm max-mo:text-xs"
+                                            >رضا گرمابی</span
+                                        >
+                                        - <span>16:36</span> -
+                                        <span>1402/06/05</span> -
+                                        <span>2 پاسخ</span>
+                                    </div>
+                                    <div x-data="thumbs()" class="flex gap-5">
+                                        <span class="cursor-pointer">
+                                            <i class="ml-1 fa fa-reply"></i
+                                            >پاسخ</span
+                                        >
+                                        <span>
+                                            <i
+                                            @click="thumbUpHandler"
+                                                class="cursor-pointer ml-1 far fa-thumbs-up"
+                                                x-show="!isThumbUp"
+                                            ></i>
+                                            <i  @click="thumbUpHandler" x-show="isThumbUp" class="fa fa-thumbs-up text-green-500 "></i>
+                                            <small x-text="thumbUp"></small>
+
+                                        </span>
+                                        <span>
+                                            <i
+                                            x-show="!isThumbDown" 
+                                            @click="thumbDownHandler"
+                                                class="cursor-pointer ml-1 far fa-thumbs-down"
+                                            ></i>
+                                            <i x-show="isThumbDown" class="fa fa-thumbs-down text-red-500"></i>
+                                            <small x-text="thumbDown"></small>
+
+                                        </span>
+                                    </div>
+                                </div>
+                                <caption class="mt-10">عالی و کار بلد</caption>
+                            </div>
+                            <div
+                                class="flex flex-col items-end gap-5 mt-5"
+                            >
+                                <div class="w-9/12 p-3 bg-white">
+                                    <div
+                                        class="flex flex-wrap justify-between gap-2 border-b pb-1"
+                                    >
+                                        <div>
+                                            <span
+                                                class="text-bg4 font-semibold text-sm max-mo:text-xs"
+                                            >
+                                                افشین حیدری
+                                            </span>
+                                            - <span>16:36</span> -
+                                            <span>1402/06/05</span>
+                                        </div>
+                                        <div x-data="thumbs()" class="flex gap-5">
+                                            <span class="cursor-pointer">
+                                                <i class="ml-1 fa fa-reply"></i
+                                                >پاسخ</span
+                                            >
+                                            <span>
+                                                <i
+                                                @click="thumbUpHandler"
+                                                    class="cursor-pointer ml-1 far fa-thumbs-up"
+                                                    x-show="!isThumbUp"
+                                                ></i>
+                                                <i  @click="thumbUpHandler" x-show="isThumbUp" class="fa fa-thumbs-up text-green-500 "></i>
+                                                <small x-text="thumbUp"></small>
+    
+                                            </span>
+                                            <span>
+                                                <i
+                                                x-show="!isThumbDown" 
+                                                @click="thumbDownHandler"
+                                                    class="cursor-pointer ml-1 far fa-thumbs-down"
+                                                ></i>
+                                                <i x-show="isThumbDown" class="fa fa-thumbs-down text-red-500"></i>
+                                                <small x-text="thumbDown"></small>
+    
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <caption class="mt-5">دقیقا</caption>
+                                </div>
+                                <div class="w-9/12 p-3 bg-white">
+                                    <div
+                                        class="flex flex-wrap justify-between gap-2 border-b pb-1"
+                                    >
+                                        <div>
+                                            <span
+                                                class="text-bg4 font-semibold text-sm max-mo:text-xs"
+                                            >
+                                                افشین حیدری
+                                            </span>
+                                            - <span>16:36</span> -
+                                            <span>1402/06/05</span>
+                                        </div>
+                                        <div x-data="thumbs()" class="flex gap-5">
+                                            <span class="cursor-pointer">
+                                                <i class="ml-1 fa fa-reply"></i
+                                                >پاسخ</span
+                                            >
+                                            <span>
+                                                <i
+                                                @click="thumbUpHandler"
+                                                    class="cursor-pointer ml-1 far fa-thumbs-up"
+                                                    x-show="!isThumbUp"
+                                                ></i>
+                                                <i  @click="thumbUpHandler" x-show="isThumbUp" class="fa fa-thumbs-up text-green-500 "></i>
+                                                <small x-text="thumbUp"></small>
+    
+                                            </span>
+                                            <span>
+                                                <i
+                                                x-show="!isThumbDown" 
+                                                @click="thumbDownHandler"
+                                                    class="cursor-pointer ml-1 far fa-thumbs-down"
+                                                ></i>
+                                                <i x-show="isThumbDown" class="fa fa-thumbs-down text-red-500"></i>
+                                                <small x-text="thumbDown"></small>
+    
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <caption class="mt-5"> مربیان بی نظیر</caption>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-5 text-gray-500 text-xs bg-gray-50 p-5">
+                            <div>
+                                <div
+                                    class="flex flex-wrap justify-between gap-2 border-b pb-1"
+                                >
+                                    <div class="">
+                                        <span
+                                            class="text-bg4 font-semibold text-sm max-mo:text-xs"
+                                            >رضا گرمابی</span
+                                        >
+                                        - <span>16:36</span> -
+                                        <span>1402/06/05</span> 
+                                    </div>
+                                    <div x-data="thumbs()" class="flex gap-5">
+                                        <span class="cursor-pointer">
+                                            <i class="ml-1 fa fa-reply"></i
+                                            >پاسخ</span
+                                        >
+                                        <span>
+                                            <i
+                                            @click="thumbUpHandler"
+                                                class="cursor-pointer ml-1 far fa-thumbs-up"
+                                                x-show="!isThumbUp"
+                                            ></i>
+                                            <i  @click="thumbUpHandler" x-show="isThumbUp" class="fa fa-thumbs-up text-green-500 "></i>
+                                            <small x-text="thumbUp"></small>
+
+                                        </span>
+                                        <span>
+                                            <i
+                                            x-show="!isThumbDown" 
+                                            @click="thumbDownHandler"
+                                                class="cursor-pointer ml-1 far fa-thumbs-down"
+                                            ></i>
+                                            <i x-show="isThumbDown" class="fa fa-thumbs-down text-red-500"></i>
+                                            <small x-text="thumbDown"></small>
+
+                                        </span>
+                                    </div>
+                                </div>
+                                <caption class="mt-5">سطح فنی مربیان عالی</caption>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </section>
+                <!-- end usercomments school sport -->
+            </div>
+            <!-- end main clubs sport -->
+        </main>
+        <!-- end containe clubs sport -->
+
+        <!-- start footer -->
+        <footer class="w-full h-64 bg-bg4"></footer>
+
+        <script src="./js/app.js"></script>
+    </body>
+</html>
